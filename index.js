@@ -77,8 +77,13 @@ io.on('connection', (socket) => {
     })
 });
 
+// Just A Sample API
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Welcome to the game'
+    })
+});
 
-
-http.listen(5000, () => {
-    console.log('listening on *:5000');
+http.listen(process.env.port | 5000, () => {
+    console.log('listening...');
 });
