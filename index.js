@@ -14,6 +14,7 @@ const IShips = {
         y: '',
         rotation: '',
         health: '',
+        score: '',
     }
 }
 
@@ -25,6 +26,7 @@ io.on('connection', (socket) => {
     // socket enter event to handle the ship enter the game
     // ship will provide it's initial data to the server and the server will return the ship's id
     socket.on('enter', (data) => {
+        data.score = 0;
         console.log('enter event', data);
         const Ship = {
             id: socket.id,
@@ -85,5 +87,5 @@ app.get('/', (req, res) => {
 });
 
 http.listen(process.env.port | 5000, () => {
-    console.log('listening...');
+    console.log('listening... on', process.env.port | 5000);
 });
